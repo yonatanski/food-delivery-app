@@ -51,4 +51,70 @@
     width: 38rem;
     position: absolute;
     top:-5rem;
+    left: 8rem;
 }
+
+
+.ContactUs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: max-content;
+    padding :1rem;
+    border-radius: 4rem;
+    top:6rem;
+    gap: 1rem;
+    background-color: white;
+    box-shadow: var(--shadow);
+    color: var(--themeRed);
+
+}
+.ContactUs>div {
+    background:rgb(59,288,59);
+    border-radius:50%;
+    width: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+
+}
+.ContactUs:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.Pizza{
+    display: flex;
+    gap: 1rem;
+    background-color:white;
+    box-shadow: var(--shadow);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    bottom: 4rem;    
+    left:19rem; 
+    width: max-content ;
+   
+}
+.Pizza>:nth-child(1){
+    width: 6rem;
+    height:4rem;
+    overflow:hidden;
+    border-radius:0.5rem;
+
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between ;
+    font-weight: bold;
+    
+}
+
+.Pizza:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+

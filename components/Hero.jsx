@@ -2,6 +2,8 @@ import Image from "next/image"
 import React from "react"
 import Cherry from "../assets/Cherry.png"
 import HeroImage from "../assets/HeroImage.png"
+import { UilPhone } from "@iconscout/react-unicons"
+import Pizzza1 from "../assets/p1.jpg"
 import css from "../styles/Hero.module.css"
 
 const Hero = () => {
@@ -26,7 +28,25 @@ const Hero = () => {
       {/* right side  */}
       <div className={css.rightSide}>
         <div className={css.imgContainer}>
-          <Image src={HeroImage} alt=" logo of cherry" layout="intrinsic" />
+          <Image src={HeroImage} alt=" logo of hero " layout="intrinsic" />
+        </div>
+
+        <div className={css.ContactUs}>
+          <span>Contact Us</span>
+          <div>
+            <UilPhone size={25} color="white" />
+          </div>
+        </div>
+        <div className={css.Pizza}>
+          <div>
+            <Image src={Pizzza1} alt=" logo of hero " objectFit="cover" layout="intrinsic" width="" />
+          </div>
+          <div className={css.details}>
+            <span>Italian Pizza</span>
+            <span>
+              <span style={{ color: "var(--themeRed)" }}>$</span> 10.00
+            </span>
+          </div>
         </div>
       </div>
     </div>
