@@ -1,0 +1,54 @@
+.container{
+    display: flex;
+    position: relative;
+}
+
+.leftSide{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.leftSide{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.cherryDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:fit-content;
+    background-color: var(--pink);
+    border:2px solid black;
+    margin-top: 3rem;
+    padding: 1rem;
+    border-radius: 12rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--themeRed)
+}
+.heroText{
+    display: flex;
+    flex-direction: column;
+    font-size: 4rem;
+    font-weight: bold;
+}
+.heroText>.miniText{
+    width: 70%;
+    color: var(--gray);
+    font-size: 1rem;
+}
+.btn{
+    padding: 1rem 2.5rem;
+    
+}
+.rightSide{
+    position: relative;
+
+}
+
+.imgContainer{
+    width: 38rem;
+    position: absolute;
+    top:-5rem;
+}
