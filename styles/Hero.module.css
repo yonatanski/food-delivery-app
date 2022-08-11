@@ -33,11 +33,13 @@
     font-size: 4rem;
     font-weight: bold;
 }
+
 .heroText>.miniText{
     width: 70%;
     color: var(--gray);
     font-size: 1rem;
 }
+
 .btn{
     padding: 1rem 2.5rem;
     
