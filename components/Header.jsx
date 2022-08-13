@@ -2,9 +2,13 @@ import React from "react"
 import css from "../styles/Header.module.css"
 import Logo from "../assets/Logo.png"
 import Image from "next/image"
+import { useStore } from "../store/store"
 import { UilShoppingBag } from "@iconscout/react-unicons"
 
 const Header = () => {
+  const state = useStore((state) => state)
+  // console.log("state", state)
+  const itemLength = useStore((state) => state.cart.pizzas.length)
   return (
     <div className={css.header}>
       {/* logo  */}
@@ -22,7 +26,7 @@ const Header = () => {
       <div className={css.rightSide}>
         <div className={css.cart}>
           <UilShoppingBag size={35} color="black" />
-          <div className={css.badge}>0</div>
+          <div className={css.badge}>{itemLength}</div>
         </div>
       </div>
     </div>
