@@ -4,6 +4,7 @@ import Logo from "../assets/Logo.png"
 import Image from "next/image"
 import { useStore } from "../store/store"
 import { UilShoppingBag } from "@iconscout/react-unicons"
+import Link from "next/link"
 
 const Header = () => {
   const state = useStore((state) => state)
@@ -24,10 +25,12 @@ const Header = () => {
       </ul>
       {/* right side  */}
       <div className={css.rightSide}>
-        <div className={css.cart}>
-          <UilShoppingBag size={35} color="black" />
-          <div className={css.badge}>{itemLength}</div>
-        </div>
+        <Link href="/Cart">
+          <div className={css.cart}>
+            <UilShoppingBag size={35} color="black" />
+            <div className={css.badge}>{itemLength}</div>
+          </div>
+        </Link>
       </div>
     </div>
   )
