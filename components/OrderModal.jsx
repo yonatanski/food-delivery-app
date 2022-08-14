@@ -4,10 +4,13 @@ import css from "../styles/OrderModal.module.css"
 import toast, { Toaster } from "react-hot-toast"
 import { Modal, useMantineTheme } from "@mantine/core"
 import { useStore } from "../store/store"
+import { useRouter } from "next/router"
 
 const OrderModal = ({ paymentMethod, opened, setOpened }) => {
+  const router = useRouter()
   const [formData, setFormData] = useState({})
   const restCart = useStore((state) => state.clearingCart)
+
   const handleInput = (e) => {
     setFormData({
       ...formData,
@@ -24,7 +27,10 @@ const OrderModal = ({ paymentMethod, opened, setOpened }) => {
     toast.success("Order Placed Successfully")
     console.log("orderPlaced", id)
     restCart()
-    typeof window !== "undefined" && localStorage.setItem("ordeID", id)
+    {
+      typeof window !== "undefined" && localStorage.setItem("order", id)
+    }
+    await router.push(`/order/${id}`)
   }
   const theme = useMantineTheme()
   return (

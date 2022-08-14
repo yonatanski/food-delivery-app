@@ -1,0 +1,76 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:10rem;
+    margin-top: 3rem;
+}
+.container>span{
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.orderDetail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 40%;
+   
+    
+}
+
+.orderDetail>div{
+    width: 30rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderDetail>div>:nth-child(2){
+    font-weight: 600;
+}
+
+
+ /* ORDER STATUS  */
+
+.statusContainer{
+    display: flex;
+    justify-content:center;
+    gap: 15rem;
+  
+}
+
+
+.status{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    width: 3rem;
+    position: relative;
+    align-items: center;
+  
+}
+
+.status> *{
+    fill :var(--themeRed)
+}
+
+.spinner{
+    position: absolute;
+    left: -1.5rem;
+    top: -1.5rem;
+    width: 6rem;
+    right: 1rem;
+}
+
+.pending{
+    background-color: #FEA84F;
+    width:  max-content;
+    padding:0.5rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    color:  white;
+
+}
