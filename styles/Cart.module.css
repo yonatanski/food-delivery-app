@@ -2,7 +2,7 @@
     padding: 2rem;
     display: grid;
     grid-template-columns: 2.2fr 1fr ;
-   gap: 2rem;
+    gap: 2rem;
 }
 
 .table{
@@ -74,4 +74,26 @@
 
 }
 
-@media screen and (max-width: 500px) /* Mobile */ {}
+@media screen and (max-width: 500px) /* Mobile */ {
+
+    .contanier{
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .table{
+       font-size: 0.6rem;
+        width: 80%;
+        border-collapse: separate;
+        border-spacing: 0.6rem;
+    }
+    .tbody>tr>:nth-child(2){
+        width: 10%;
+   }
+   .removeMobile{
+    font-size: 1.4rem;
+   }
+
+}

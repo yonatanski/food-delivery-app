@@ -51,7 +51,7 @@ export default function Cart() {
                       <td>{pizza.price}</td>
                       <td>{pizza.quanity}</td>
                       <td>{pizza.price * pizza.quanity}</td>
-                      <td style={{ color: "var(--themeRed)", cursor: "pointer" }} onClick={() => handleRemoveCart(i)}>
+                      <td style={{ color: "var(--themeRed)", cursor: "pointer" }} className={css.removeMobile} onClick={() => handleRemoveCart(i)}>
                         x
                       </td>
                     </tr>
