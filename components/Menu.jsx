@@ -11,7 +11,7 @@ const Menu = ({ pizzas }) => {
       <div className={css.heading}>
         <span>Our Menu</span>
         <span> Menu That Always</span>
-        <span>Make You Fall In Love</span>
+        <span>Make You Fall In Love With</span>
       </div>
 
       {/* card  */}

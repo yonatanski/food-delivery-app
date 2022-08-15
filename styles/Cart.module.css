@@ -73,3 +73,5 @@
     border: 2px solid var(--themeRed);
 
 }
+
+@media screen and (max-width: 500px) /* Mobile */ {}

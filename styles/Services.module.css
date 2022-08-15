@@ -49,3 +49,37 @@
     text-align: center
 
 }
+
+
+
+
+@media screen and (max-width: 500px) /* Mobile */ {
+   .heading{
+    margin-top: 2.2rem;
+
+  
+  
+   }
+
+
+.heading>:nth-child(2),
+.heading>:nth-child(3){
+   
+    font-size: 1.5rem;
+}
+.serviceList{
+   
+    flex-direction: column;
+    
+    gap: 0.2rem;
+    
+}
+.feauters{
+   
+ 
+    gap:0.9rem;
+}
+
+
+
+}
