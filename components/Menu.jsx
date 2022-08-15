@@ -20,19 +20,38 @@ const Menu = ({ pizzas }) => {
           const src = urlFor(pizza.image.asset._ref).url()
           console.log(src)
           return (
-            <div key={id} className={css.pizza}>
-              <Link href={`/pizza/${pizza.slug.current}`}>
-                <div className={css.imageWrapper}>
+            <div key={id} className={css.pizza} style={{}}>
+              {pizza.status == 1 ? (
+                <Link href={`/pizza/${pizza.slug.current}`}>
+                  <div className={css.imageWrapper}>
+                    <span>
+                      <Image loader={() => src} src={src} alt={pizza.name} objectfit="cover" layout="fill" />
+                    </span>
+                  </div>
+                </Link>
+              ) : (
+                <div className={css.imageWrapperStatusNo}>
+                  <div></div>
                   <span>
                     <Image loader={() => src} src={src} alt={pizza.name} objectfit="cover" layout="fill" />
                   </span>
                 </div>
-              </Link>
-              <span>{pizza.name}</span>
-              <span>
-                <span style={{ color: "var(--themeRed)" }}> $ </span>
-                {pizza.price[1]}
-              </span>
+              )}
+              {pizza.status == 1 ? (
+                <>
+                  <span>{pizza.name}</span>
+                  <span>
+                    <span style={{ color: "var(--themeRed)" }}> $ </span>
+                    {pizza.price[1]}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span>{pizza.name}</span>
+
+                  <span style={{ color: "var(--themeRed)" }}> NOT AVAILABLE!! </span>
+                </>
+              )}
             </div>
           )
         })}

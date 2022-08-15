@@ -61,3 +61,46 @@
 
 
 }
+
+
+
+@media screen and (max-width: 500px) /* Mobile */ {
+    .header{
+        
+        gap: 0.8rem;
+       
+     }
+     .logo{
+        flex-direction: column;
+
+     }
+     .menu{
+        gap: 0.5rem;
+        flex:2;
+        padding: 0;
+     }
+     .rightSide{
+        flex-direction: column;
+        flex:1
+     }
+     .badge{
+        position: absolute;
+        display: flex;
+        background-color: var(--themeRed);
+        color: white;
+        border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        justify-content: center;
+        align-items: center;
+        right:0.8rem;
+    
+    
+    }
+
+     .logo>span{
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    }

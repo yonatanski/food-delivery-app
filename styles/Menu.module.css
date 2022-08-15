@@ -46,8 +46,23 @@
     overflow: hidden;
     border-radius: 2rem;
 }
+.imageWrapperStatusNo{
+    height: 16rem;
+    width: 22rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+    background-color:black;
+    opacity: 0.2;
+  
+}
+.imageWrapperStatusNo>span:hover{
+   background-color:rgb(207, 20, 20);
+   opacity: 0.2;
 
-.imageWrapper>span>img:hover{
+}
+
+.imageWrapper>span>:hover{
     transform: scale(1.1);
 
 }
