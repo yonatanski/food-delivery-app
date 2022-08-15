@@ -17,7 +17,7 @@ const Hero = () => {
         </div>
         <div className={css.heroText}>
           <span>Be The Fastest </span>
-          <span>In Delivering Your</span>
+          <span>In Delivering </span>
           <span>
             Your <span style={{ color: "var(--themeRed)" }}>Pizza</span>
           </span>
