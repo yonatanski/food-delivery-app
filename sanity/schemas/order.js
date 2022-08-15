@@ -46,6 +46,30 @@ export default {
       title: "Total",
       type: "number",
     },
+    {
+      name: "orderDetail",
+      title: "OrderDetail",
+      type: "array",
+      // of: [{ _id: "string", details: "string", name: "string", price: "number", quanity: "number", size: "number" }],
+      of: [{ type: "pizza" }, { name: "price", type: "number" }, { name: "quanity", type: "number" }, { name: "size", type: "number" }],
+      // of: [
+      //   { name: "details", type: "string" },
+      //   { name: "name", type: "string" },
+      //   { name: "price", type: "number" },
+      //   { name: "quanity", type: "number" },
+      //   { name: "size", type: "number" },
+      // ],
+    },
+    {
+      name: "preparing",
+      title: "Preparing",
+      type: "number",
+    },
+    {
+      name: "delivering",
+      title: "Delivering",
+      type: "number",
+    },
 
     {
       name: "status",

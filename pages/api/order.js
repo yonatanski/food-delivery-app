@@ -14,6 +14,7 @@ export default async function handler(req, res) {
             comment: newOrder.comment,
             total: newOrder.total,
             method: newOrder.method,
+            orderDetail: newOrder.orderDetail,
             status: 1,
           })
           .then((data) => {

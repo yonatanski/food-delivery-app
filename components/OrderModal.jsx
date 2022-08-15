@@ -6,7 +6,7 @@ import { Modal, useMantineTheme } from "@mantine/core"
 import { useStore } from "../store/store"
 import { useRouter } from "next/router"
 
-const OrderModal = ({ paymentMethod, opened, setOpened }) => {
+const OrderModal = ({ CartData, paymentMethod, opened, setOpened }) => {
   const router = useRouter()
   const [formData, setFormData] = useState({})
   const restCart = useStore((state) => state.clearingCart)
@@ -22,8 +22,21 @@ const OrderModal = ({ paymentMethod, opened, setOpened }) => {
 
   const handleSumbitForm = async (e) => {
     e.preventDefault()
-    const id = await createOrder({ ...formData, total, paymentMethod })
-    console.log("formData--->", { ...formData, total, paymentMethod })
+    const id = await createOrder({
+      ...formData,
+      total,
+      paymentMethod,
+      orderDetail: CartData.pizzas.map(({ _id, name, details, image, size, price, quanity }) => ({
+        _id: _id,
+        name: name,
+        details: details,
+        image: image,
+        size: size,
+        price: price,
+        quanity: quanity,
+      })),
+    })
+    console.log("formData--->", { ...formData, total, paymentMethod, orderDetail: CartData.pizzas })
     toast.success("Order Placed Successfully")
     console.log("orderPlaced", id)
     restCart()

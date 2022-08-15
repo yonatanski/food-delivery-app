@@ -86,7 +86,7 @@ export default function Cart() {
       <Toaster />
 
       {/* MODAL FOR PAYMENT FORM */}
-      <OrderModal paymentMethod={paymentMethod} opened={paymentMethod === 0} setOpened={setPaymentMethod} />
+      <OrderModal CartData={CartData} paymentMethod={paymentMethod} opened={paymentMethod === 0} setOpened={setPaymentMethod} />
     </Layout>
   )
 }
