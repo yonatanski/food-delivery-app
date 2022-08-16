@@ -20,8 +20,8 @@ const OrderReport = ({ order }) => {
           <th></th>
         </thead>
         <tbody className={css.tbody}>
-          {order.orderDetail.length > 0 &&
-            order.orderDetail.map((pizza, i) => {
+          {order?.orderDetail.length > 0 &&
+            order?.orderDetail?.map((pizza, i) => {
               const src = urlFor(pizza.image[0]).url()
               return (
                 <tr key={i}>
