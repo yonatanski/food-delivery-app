@@ -1,10 +1,11 @@
 .container{
+    margin-top:7rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap:2rem;
-    margin-top: 2rem;
+  
 }
 .container>span{
     font-weight: 600;
@@ -65,6 +66,15 @@
     width: 6rem;
     right: 1rem;
 }
+ .refreshStatubtn{
+    background-color: #0d0d0d;
+    width:  max-content;
+    padding:0.5rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    color:  white;
+    cursor: pointer;
+}
 
 .pending{
     background-color: #FEA84F;
@@ -91,3 +101,130 @@
     text-align: center
    
 }
+
+@media screen  and (max-width: 975px)  { 
+
+    .statusContainer{
+        display: flex;
+        justify-content:center;
+        gap: 3rem;
+      
+    }
+
+    .status{
+        display: flex;
+        flex-direction: column;
+        row-gap:1rem;
+        width: 6rem;
+        position: relative;
+        align-items: center;
+      
+    }
+
+    .spinner{
+        position: absolute;
+        left: 0rem;
+        top: -1.5rem;
+        width: 6rem;
+        right: 1rem;
+    }
+
+}
+
+
+@media screen and (max-width: 500px) /* Mobile */ {
+
+    .container{
+        margin-top:10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap:0.6rem;
+       
+    }
+
+    .container>span{
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+
+
+    .statusContainer{
+        display: flex;
+        justify-content:center;
+        gap: 2rem;
+      
+    }
+
+    .status{
+        display: flex;
+        flex-direction: column;
+        row-gap:1rem;
+        width: 3rem;
+        position: relative;
+        align-items: center;
+      
+    }
+    .spinner{
+        position: absolute;
+        left: -1.5rem;
+        top: -1.5rem;
+        width: 6rem;
+        right: 1rem;
+    }
+
+    .pending{
+    
+        padding:0.3rem;
+      
+        font-size: 0.6rem;
+     
+    
+    }
+
+    .complted{
+        padding:0.3rem;
+      
+        font-size: 0.6rem;
+    }
+    .orderDetail{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        width: 40%;
+        margin-bottom: 5rem;
+       
+        
+    }
+
+    .orderDetail>div{
+        /* flex-direction: column; */
+        padding-left: 6rem;
+        padding-right: 6rem;
+        width: 30rem;
+       
+        align-items: center;
+        gap:3rem;
+        display: flex;
+        
+    }
+
+    
+.orderDetail>div>:nth-child(1){
+    font-size: 0.7rem;
+}
+.orderDetail>div>:nth-child(2){
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+    
+    
+}
+
+

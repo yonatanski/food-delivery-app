@@ -1,4 +1,5 @@
 .container{
+    margin-top:7rem;
     display: flex;
     position: relative;
 }
@@ -121,10 +122,12 @@
 
 @media screen and (max-width: 500px) /* Mobile */ {
     .container{
+        margin-top:4.2rem;
      flex-direction: column;
        
     }
     .leftSide{
+        
         display: flex;
         flex-direction: column;
         gap: 1rem;

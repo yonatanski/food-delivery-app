@@ -11,6 +11,7 @@ import toast, { Toaster } from "react-hot-toast"
 
 export default function Pizza({ pizza }) {
   const [size, setSize] = useState(0)
+  const [currnetImage, setCurrnetImage] = useState(0)
   const [quanity, setQuantity] = useState(1)
   const handleQty = (type) => {
     type === "inc" ? setQuantity((prev) => prev + 1) : quanity === 1 ? null : setQuantity((prev) => prev - 1)
@@ -21,13 +22,29 @@ export default function Pizza({ pizza }) {
     toast.success("Pizza added to cart")
   }
 
-  const src = urlFor(pizza.image).url()
+  const src = urlFor(pizza.image[currnetImage]).url()
+  console.log("top src", src)
   console.log(pizza)
   return (
     <Layout>
       <div className={css.container}>
-        <div className={css.imageWrapper}>
-          <Image loader={() => src} src={src} alt="" layout="fill" unoptimized objectfit="cover" />
+        <div className={css.gallary}>
+          <div className={css.imageWrapper}>
+            <Image loader={() => src} src={src} alt="" layout="fill" unoptimized objectfit="cover" />
+            {/* // style={{ border: i == currnetImage ? "5px solid red" : ""  */}
+          </div>
+          <div className={css.gallaryPicker}>
+            {pizza.image.map((image, i) => {
+              const src = urlFor(image.asset._ref).url()
+              console.log("src yaaaaa", src)
+
+              return (
+                <div key={i} style={{ border: i == currnetImage ? "2px solid red" : "" }}>
+                  <Image loader={() => src} src={src} alt="dd" onClick={() => setCurrnetImage(i)} width={70} height={70} />
+                </div>
+              )
+            })}
+          </div>
         </div>
         {/* size part  */}
         <div className={css.detail}>

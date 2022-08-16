@@ -4,11 +4,12 @@ import { urlFor } from "../lib/client"
 import { useStore } from "../store/store"
 import toast, { Toaster } from "react-hot-toast"
 import css from "../styles/Cart.module.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import OrderModal from "../components/OrderModal"
 
 export default function Cart() {
   const [paymentMethod, setPaymentMethod] = useState(null)
+  const [order, setOrder] = useState("")
   const CartData = useStore((state) => state.cart)
   const removePizza = useStore((state) => state.removePizza)
   const handleRemoveCart = (id) => {
@@ -19,9 +20,17 @@ export default function Cart() {
   const total = () => CartData.pizzas.reduce((acc, curr) => acc + curr.quanity * curr.price, 0)
 
   const handelOnDelivery = () => {
-    setPaymentMethod(0)
-    typeof window !== "undefined" && localStorage.setItem("total", total())
+    if (order) {
+      toast.error("You have already placed an order, Check your recent order status first ")
+    } else {
+      setPaymentMethod(0)
+      typeof window !== "undefined" && localStorage.setItem("total", total())
+    }
   }
+  useEffect(() => {
+    setOrder(localStorage.getItem("order"))
+  }, [])
+
   return (
     <Layout>
       <div className={css.contanier}>
@@ -39,7 +48,7 @@ export default function Cart() {
             <tbody className={css.tbody}>
               {CartData.pizzas.length > 0 &&
                 CartData.pizzas.map((pizza, i) => {
-                  const src = urlFor(pizza.image).url()
+                  const src = urlFor(pizza.image[0]).url()
                   return (
                     <tr key={i}>
                       <td className={css.imageTd}>
@@ -61,26 +70,32 @@ export default function Cart() {
           </table>
         </div>
         {/* summary */}
-        <div className={css.cart}>
-          <span>Cart</span>
-          <div className={css.cartDetail}>
-            <div>
-              <span>Items</span>
-              <span>{CartData.pizzas.length}</span>
-            </div>
+        {CartData.pizzas.length > 0 ? (
+          <div className={css.cart}>
+            <span>Cart</span>
+            <div className={css.cartDetail}>
+              <div>
+                <span>Items</span>
+                <span>{CartData.pizzas.length}</span>
+              </div>
 
-            <div>
-              <span>Total</span>
-              <span>{total()}</span>
+              <div>
+                <span>Total</span>
+                <span>{total()}</span>
+              </div>
+            </div>
+            <div className={css.buttons}>
+              <button className="btn" onClick={handelOnDelivery}>
+                Pay On Delivery
+              </button>
+              <button className="btn">Pay Now</button>
             </div>
           </div>
-          <div className={css.buttons}>
-            <button className="btn" onClick={handelOnDelivery}>
-              Pay On Delivery
-            </button>
-            <button className="btn">Pay Now</button>
+        ) : (
+          <div className={css.cart}>
+            <span>Your Cart is Epmty</span>
           </div>
-        </div>
+        )}
       </div>
 
       <Toaster />

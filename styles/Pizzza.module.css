@@ -1,13 +1,21 @@
 .container {
+margin-top:7rem;
   display: flex;
   padding: 2rem;
   gap: 5rem;
-  margin-top: 3rem;
+  
+ 
+}
+.gallary{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    gap:1rem;
 }
 .imageWrapper {
   position: relative;
-  width: 40%;
-  height: 25rem;
+  width: 100%;
+  height: 30rem;
   overflow: hidden;
   border-radius: 2rem;
 }
@@ -15,13 +23,26 @@
 .imageWrapper>span>img:hover{
     transform: scale(1.1);
 }
+.gallaryPicker{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content:center;
+    
+}
+/* .gallaryPicker>span>{
+    border: 5px solid red;
+} */
+/* .gallaryPicker>span{
+    display: flex;
+} */
 .detail{
     flex :1;
     display: flex;
     flex-direction: column;
     font-size: 2.2rem;
     font-weight: bold;
-    justify-content: space-between;
+     gap :1rem
 }
 
 .detail>:nth-child(2){
@@ -92,3 +113,147 @@
     cursor: pointer;
 
 }
+
+
+@media screen and (max-width: 600px) /* Mobile */ {
+
+    .container {
+        margin-top:9.5rem;
+        display: flex;
+        flex-direction: column;
+        padding: 0.2rem;
+        gap: 1.2rem;
+        
+      }
+      .imageWrapper {
+        position: relative;
+        width: 100%;
+        height: 17rem;
+        object-fit: cover;
+        overflow: hidden;
+        border-radius: 2rem;
+      }
+      .imageWrapper>span>img{
+        object-fit:cover ;
+      }
+
+      .gallaryPicker{
+        display: flex;
+      
+        gap: 0.2rem;
+        justify-content:center;
+        
+    }
+
+      .detail{
+        flex :1;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5rem;
+        gap:0.2rem;
+        font-weight: bold;
+        margin-left: 1.2rem;
+    }
+
+    .size{
+        display: flex;
+        gap:1rem;
+        font-weight: bold;
+        font-size: 1.2rem;
+    
+    
+    }
+    .sizeVariant{
+        display: flex;
+        gap:0.3rem;
+        font-weight: normal;
+        color: var(--themeRed);
+        font-size: 0.7rem;
+    }
+    .sizeVariant>div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.1rem 1.1rem;
+        border: 2px solid var(--themeRed);
+        border-radius: 2rem;
+     } 
+
+     .quantity{
+        margin-top: 1rem;
+        display: flex;
+        font-weight: bold;
+        font-size: 1.2rem;
+        gap : 1rem;
+    }
+    .counter>span{
+        margin-left: 1rem;
+        margin-right: 1rem
+    
+    }
+
+    .btn{
+        margin-top: 1rem;
+        font-weight: normal;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        align-self: center;
+    }
+     
+}
+
+@media screen  and (max-width: 975px)  { 
+   
+
+.container {
+        margin-top:9.5rem;
+        display: flex;
+
+        padding: 0.2rem;
+        gap: 1rem;
+        
+      }
+      .gallary{
+        display: flex;
+        flex-direction: column;
+        flex:3;
+        gap:1rem;
+    }
+
+    .imageWrapper {
+        position: relative;
+        /* width: 100%; */
+        height: 22rem;
+        overflow: hidden;
+        border-radius: 2rem;
+      }
+
+      .detail{
+        flex :1;
+        display: flex;
+        flex-direction: column;
+        font-size: 2.2rem;
+        font-weight: bold;
+         gap :1rem
+    }
+      .imageWrapper {
+        position: relative;
+        width: 100%;
+        height: 17rem;
+        object-fit: cover;
+        overflow: hidden;
+        border-radius: 2rem;
+      }
+      .imageWrapper>span>img{
+        object-fit:cover ;
+      }
+
+      .gallaryPicker{
+        display: flex;
+      
+        gap: 0.2rem;
+        justify-content:center;
+        
+    }
+    
+  }

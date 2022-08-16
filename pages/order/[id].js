@@ -1,4 +1,5 @@
 import Layout from "../../components/Layout"
+import Link from "next/link"
 import { parseISO, format } from "date-fns"
 import Image from "next/image"
 import Cooking from "../../assets/cooking.png"
@@ -9,7 +10,7 @@ import { UilBill, UilBox } from "@iconscout/react-unicons"
 import { client } from "../../lib/client"
 import { useEffect } from "react"
 import OrderReport from "../OrderReport"
-
+import toast, { Toaster } from "react-hot-toast"
 export const getServerSideProps = async ({ params }) => {
   console.log("paramsid", params)
   const query = `*[_type == 'order' && _id =='${params.id}']`
@@ -22,6 +23,10 @@ export const getServerSideProps = async ({ params }) => {
   }
 }
 
+const handleRefreshStatus = () => {
+  toast.success("Order status updated!... You will be able to see the if the status is Updated from the Resturant")
+}
+
 export default function Orders({ order }) {
   useEffect(() => {
     if (order.status > 3) {
@@ -31,6 +36,12 @@ export default function Orders({ order }) {
   return (
     <Layout>
       <div className={css.container}>
+        <Link href={`/order/${order._id}`}>
+          <button className={`btn ${css.refreshStatubtn}`} onClick={handleRefreshStatus}>
+            {" "}
+            Click to see Updated Delivery Status{" "}
+          </button>
+        </Link>
         <span>Order in process</span>
         <div className={css.statusContainer}>
           <div className={css.status}>
@@ -55,7 +66,7 @@ export default function Orders({ order }) {
             <Image src={OnWay} alt="logo of the navigation bar" width={50} height={50} />
             <div>
               <span>OnWay</span>
-              {order.delivering && order.status == 2 && <p>{order.delivering} min</p>}
+              {order.delivering && (order.status == 1 || order.status == 2) && <p>{order.delivering} min</p>}
             </div>
             {order.status == 2 && (
               <div className={css.spinner}>
@@ -93,7 +104,9 @@ export default function Orders({ order }) {
           </div>
           <div>
             <span>Order Address</span>
-            <span>{order.address}</span>
+            <a href={order.address} target="_blank" rel="noreferrer" style={{ color: "var(--themeRed)", cursor: "pointer" }}>
+              <span>Clik here to see the address</span>
+            </a>
           </div>
           <div>
             <span>Order Extra Comment</span>
@@ -120,6 +133,7 @@ export default function Orders({ order }) {
         <span>Order History</span>
       </div>
       <OrderReport order={order} />
+      <Toaster />
     </Layout>
   )
 }

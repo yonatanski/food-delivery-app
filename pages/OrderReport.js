@@ -22,7 +22,7 @@ const OrderReport = ({ order }) => {
         <tbody className={css.tbody}>
           {order.orderDetail.length > 0 &&
             order.orderDetail.map((pizza, i) => {
-              const src = urlFor(pizza.image).url()
+              const src = urlFor(pizza.image[0]).url()
               return (
                 <tr key={i}>
                   <td className={css.imageTd}>

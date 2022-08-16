@@ -16,6 +16,7 @@ const Header = () => {
     setOrder(localStorage.getItem("order"))
   }, [])
   return (
+    // <div className={css.fixed}>
     <div className={css.header}>
       {/* logo  */}
       <div className={css.logo}>
@@ -48,6 +49,7 @@ const Header = () => {
         )}
       </div>
     </div>
+    // </div>
   )
 }
 

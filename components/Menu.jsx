@@ -17,7 +17,7 @@ const Menu = ({ pizzas }) => {
       {/* card  */}
       <div className={css.menu}>
         {pizzas.map((pizza, id) => {
-          const src = urlFor(pizza.image.asset._ref).url()
+          const src = urlFor(pizza.image[0].asset._ref).url()
           console.log(src)
           return (
             <div key={id} className={css.pizza} style={{}}>
