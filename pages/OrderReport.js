@@ -44,7 +44,7 @@ const OrderReport = ({ order }) => {
             <td></td>
             <td></td>
             <td></td>
-            <td style={{ color: "var(--themeRed)", fontWeight: "bold" }}>{order.total}</td>
+            <td style={{ color: "var(--themeRed)", fontWeight: "bold" }}>{order?.total}</td>
           </tr>
         </tbody>
       </table>
