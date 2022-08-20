@@ -4,6 +4,10 @@ export const useStore = create((set) => ({
   cart: {
     pizzas: [],
   },
+  AutoCompletestring: {
+    text: "",
+  },
+
   // adding to cart
   addPizza: (data) =>
     set((state) => ({
@@ -23,6 +27,14 @@ export const useStore = create((set) => ({
     set((state) => ({
       cart: {
         pizzas: [],
+      },
+    })),
+
+  //AutoComplete string
+  autoComplete: (data) =>
+    set((state) => ({
+      AutoCompletestring: {
+        text: data,
       },
     })),
 }))

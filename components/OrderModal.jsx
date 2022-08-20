@@ -1,5 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useMemo } from "react"
 import { createOrder } from "../lib/orderHandler"
+import PlaceAutocomplete from "./PlaceAutocomplete"
+
 import css from "../styles/OrderModal.module.css"
 import toast, { Toaster } from "react-hot-toast"
 import { Modal, useMantineTheme } from "@mantine/core"
@@ -9,11 +11,15 @@ import { useRouter } from "next/router"
 const OrderModal = ({ CartData, paymentMethod, opened, setOpened }) => {
   const router = useRouter()
   const [formData, setFormData] = useState({})
+  const [btn, setBtn] = useState(false)
   const restCart = useStore((state) => state.clearingCart)
+  const Autostring = useStore((state) => state.AutoCompletestring.text)
+  console.log("Autostring", Autostring)
 
   const handleInput = (e) => {
     setFormData({
       ...formData,
+
       [e.target.name]: e.target.value,
     })
   }
@@ -22,6 +28,7 @@ const OrderModal = ({ CartData, paymentMethod, opened, setOpened }) => {
 
   const handleSumbitForm = async (e) => {
     e.preventDefault()
+    setBtn(true)
     const id = await createOrder({
       ...formData,
       address: `https://www.google.com/maps/search/?api=1&query=${encodeURI(formData.address)}`,
@@ -55,12 +62,13 @@ const OrderModal = ({ CartData, paymentMethod, opened, setOpened }) => {
         <input onChange={handleInput} type="text" name="name" required placeholder="Full name" />
         <input onChange={handleInput} type="tel" name="phone" required placeholder="Phone number +48.." />
 
-        <input onChange={handleInput} name="address" rows={3} required placeholder="Delivery Address"></input>
+        {/* <input onChange={handleInput} name="address" rows={3} required placeholder="Delivery Address"></input> */}
+        <PlaceAutocomplete formData={formData} setFormData={setFormData} />
         <textarea onChange={handleInput} name="comment" rows={4} placeholder="right here if you have extra message for us"></textarea>
         <span>
           You will pay <span>$ {total}</span> on Delivery
         </span>
-        <button type="submit" className="btn">
+        <button type="submit" className="btn" disabled={btn}>
           Place Order
         </button>
       </form>
