@@ -6,7 +6,7 @@ import Image from "next/image"
 
 const Footer = () => {
   return (
-    <div className={css.container}>
+    <div className={css.container} id="contact">
       <span>ALL RIGHT RESERVED!</span>
       <div className={css.socail}>
         <UilFacebook size={45} />

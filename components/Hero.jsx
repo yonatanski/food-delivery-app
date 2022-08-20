@@ -22,7 +22,9 @@ const Hero = () => {
             Your <span style={{ color: "var(--themeRed)" }}>Pizza</span>
           </span>
           <span className={css.miniText}>Our Mission is to filling your tummy with delicious food and with fast and free delivery</span>
-          <button className={`btn ${css.btn}`}>Get Started</button>
+          <a href="#menu">
+            <button className={`btn ${css.btn}`}>Get Started</button>
+          </a>
         </div>
       </div>
       {/* right side  */}

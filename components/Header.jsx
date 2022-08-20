@@ -28,8 +28,12 @@ const Header = () => {
         <li>
           <Link href="/">Home</Link>
         </li>
-        <li>Menu</li>
-        <li>Contact</li>
+        <a href="#menu">
+          <li>Menu</li>
+        </a>
+        <a href="#contact">
+          <li>Contact</li>
+        </a>
       </ul>
       {/* right side  */}
       <div className={css.rightSide}>

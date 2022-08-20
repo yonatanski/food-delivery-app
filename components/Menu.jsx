@@ -7,7 +7,7 @@ import css from "../styles/Menu.module.css"
 const Menu = ({ pizzas }) => {
   console.log(pizzas)
   return (
-    <div className={css.container}>
+    <div className={css.container} id="menu">
       <div className={css.heading}>
         <span>Our Menu</span>
         <span> Menu That Always</span>
