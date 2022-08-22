@@ -10,9 +10,7 @@ import Typography from "@mui/material/Typography"
 import parse from "autosuggest-highlight/parse"
 import throttle from "lodash/throttle"
 
-// This key was created specifically for the demo in mui.com.
 // You need to create a new one for your application.
-const GOOGLE_MAPS_API_KEY = "AIzaSyBVLchQA4bZdQKiNNxkUvMPUPX3tzaFLBs"
 
 function loadScript(src, position, id) {
   if (!position) {
@@ -40,7 +38,7 @@ export default function GoogleMaps({ setFormData, formData }) {
 
   if (typeof window !== "undefined" && !loaded.current) {
     if (!document.querySelector("#google-maps")) {
-      loadScript(`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places`, document.querySelector("head"), "google-maps")
+      loadScript(`https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&libraries=places`, document.querySelector("head"), "google-maps")
     }
 
     loaded.current = true
